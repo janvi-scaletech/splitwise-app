@@ -1,4 +1,6 @@
 import React, { MouseEventHandler, CSSProperties, PropsWithChildren } from 'react';
+import classnames from 'classnames';
+import loading from 'assets/images/loding.gif';
 
 interface IButtonProps extends PropsWithChildren {
 	btnType?: 'default' | 'primary' | 'warning' | 'danger' | 'info';
@@ -19,12 +21,22 @@ const Button: React.FC<IButtonProps> = (props) => {
 			data-testid={props.dataTestId || null}
 			title={props.abbr || ''}
 			type={props.type || 'button'}
-			className={props.className}
+			className={classnames(
+				'btn',
+				`btn-${props.btnType || 'default'}`,
+				'ignore-text-capitalize',
+				props.className
+			)}
 			disabled={props.loading || props.disabled}
 			style={props.style || {}}
 			onClick={!props.disabled && !props.loading ? onClick : () => undefined}
 		>
-			{props.loading && <i className='bx bxs-spin bx-spinner' />}
+			{props.loading ? (
+				// <i className='bx bxs-spin bx-spinner' />
+				<img className='loading-image' src={loading} />
+			) : (
+				props.children
+			)}
 		</button>
 	);
 	return props.abbr ? (
