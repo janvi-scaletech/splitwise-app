@@ -59,10 +59,16 @@ const resetPasswordFormValidationSchema = Yup.object().shape({
 		.strict(true)
 });
 
+const expenseValidationSchema = Yup.object().shape({
+	description: Yup.string().required('Please Enter Description').strict(true),
+	amount: Yup.number().required('Please Enter Amount').strict(true)
+});
+
 export {
 	loginFormValidationSchema,
 	forgotPasswordFormValidationSchema,
 	resetPasswordValidationSchema,
 	changePasswordValidationSchema,
-	resetPasswordFormValidationSchema
+	resetPasswordFormValidationSchema,
+	expenseValidationSchema
 };

@@ -22,7 +22,8 @@ export const reactSelectStyles = {
 		...base,
 		zIndex: 3,
 		marginTop: 0,
-		width: '300px'
+		width: '300px',
+		top: '66%'
 	}),
 	menuList: (base: CSSProperties) => ({
 		...base,
@@ -47,8 +48,9 @@ export const reactSelectStyles = {
 		// none of react-selects styles are passed to <View />
 		display: 'flex',
 		width: '300px',
-		minHeight: '50px  ',
-		padding: '0px '
+		minHeight: '50px',
+		padding: '0px',
+		backgroundColor: '#ffffff'
 	}),
 	container: () => ({
 		width: '300px'
