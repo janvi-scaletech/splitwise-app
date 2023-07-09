@@ -2,11 +2,12 @@ import { IAction } from 'shared/interface/state';
 import AuthService from 'shared/services/auth.service';
 
 import * as actionTypes from 'store/actionTypes';
-import { IAuthState, IUserData } from '../interface/auth';
+import { IAuthState, IExpenseData, IUserData } from '../interface/auth';
 
 const initialState: IAuthState = {
 	isLogin: AuthService.isLogin(),
-	userData: {} as IUserData
+	userData: {} as IUserData,
+	expenseData: {} as IExpenseData
 };
 
 const reducer = (state: IAuthState = initialState, action: IAction) => {
@@ -25,6 +26,11 @@ const reducer = (state: IAuthState = initialState, action: IAction) => {
 			return {
 				...state,
 				userData: action.payload
+			};
+		case actionTypes.EXPENSE_DATA:
+			return {
+				...state,
+				expenseData: action.payload
 			};
 		case actionTypes.AUTH_LOGOUT:
 			return {

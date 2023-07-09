@@ -1,30 +1,54 @@
 import { FC, useEffect, useState } from 'react';
-import {
-	EXPENSE_DETAILS,
-	EXPENSE_DETAILS_INITIAL_VALUES,
-	USER_DETAILS,
-	USER_OPTIONS
-} from '../constants/dashboard.constants';
 import CustomModal from 'shared/modal/modal';
+import ExpenseForm from '../component/expenseForm';
+import { USER_DETAILS } from '../constants/dashboard.constants';
 import '../styles/dashboard.scss';
-import { ErrorMessage, Field, Form, Formik, FormikValues } from 'formik';
-import { expenseValidationSchema } from 'shared/constants/validation-schema';
-import { ReactSelect } from 'shared/form/reactSelect';
-import { reactSelectStyles } from 'shared/form/reactSelectStyles';
+import ExpenseList from '../component/expenseList';
 
 const Dashboard: FC = () => {
 	const [name, setName] = useState<any>([]);
 	const [isOpenExpense, setIsOpenExpense] = useState(false);
-	const [expenseValue, setExpenseValue] = useState([]);
 
-	const onSubmit = (values: FormikValues) => {
-		console.log('values', values);
-		localStorage.setItem('expense-value', JSON.stringify(values));
+	const [totalOwe, setTotalOwe] = useState<number>(0);
+	const [totalBorrow, setTotalBorrow] = useState<number>(0);
+	const expenseData = JSON.parse(localStorage.getItem('expenses') || '[]') as any[];
+
+	const getTotalExpenseForYou = () => {
+		let totalOwe = 0;
+		let totalBorrow = 0;
+
+		expenseData.forEach((data: any) => {
+			const { amount, owes_list, paid_person } = data;
+
+			if (owes_list?.includes('You')) {
+				if (paid_person === 'You') {
+					const splitAmount = +amount / owes_list.length;
+					console.log('splitAmount', splitAmount);
+					totalOwe += +amount - splitAmount;
+					console.log('11--------totalOwe', totalOwe);
+				} else {
+					const splitAmount = +amount / owes_list.length;
+					totalBorrow += splitAmount;
+					console.log('22------totalBorrow', totalBorrow);
+				}
+			} else if (paid_person === 'You') {
+				totalOwe += +amount;
+				console.log('33------totalOwe', totalOwe);
+			}
+		});
+
+		setTotalOwe(Math.round(totalOwe));
+		setTotalBorrow(Math.round(totalBorrow));
 	};
+
+	useEffect(() => {
+		getTotalExpenseForYou();
+	});
+
 	useEffect(() => {
 		setName(USER_DETAILS);
 		localStorage.setItem('user-details', JSON.stringify(name));
-	}, [name]);
+	});
 
 	return (
 		<div className='dashboard-wrapper'>
@@ -33,6 +57,32 @@ const Dashboard: FC = () => {
 					Expense
 				</button>
 			</div>
+
+			{expenseData?.length > 0 && totalOwe && (
+				<>
+					<p
+						className={`font-size--sm font--regular line-height--20 mt--15  ${
+							totalOwe < 0 && 'text--red-600'
+						}`}
+					>
+						You owe ${Math.abs(totalOwe)} overall
+					</p>
+				</>
+			)}
+
+			{expenseData?.length > 0 && totalBorrow && (
+				<>
+					<p
+						className={`font-size--sm font--regular line-height--20 mt--15  ${
+							totalBorrow > 0 && 'text--red-600'
+						}`}
+					>
+						You borrowed ${Math.abs(totalBorrow)} overall
+					</p>
+				</>
+			)}
+
+			<ExpenseList />
 
 			{isOpenExpense && (
 				<CustomModal
@@ -43,58 +93,7 @@ const Dashboard: FC = () => {
 					}}
 				>
 					<h3 className=''>Add Expense</h3>
-					<div>
-						<Formik
-							initialValues={EXPENSE_DETAILS_INITIAL_VALUES}
-							onSubmit={onSubmit}
-							validationSchema={expenseValidationSchema}
-							validateOnChange
-							validateOnBlur
-							validateOnMount
-						>
-							{({ errors, touched, setFieldValue }) => {
-								return (
-									<Form>
-										{EXPENSE_DETAILS.map(({ label, name, type }, index) => {
-											return (
-												<div
-													key={index}
-													className='mb--15 flex flex--column position--relative'
-												>
-													<label className='text--left font-size--browser-default font--semi-bold'>
-														{label}
-													</label>
-													<Field className={` no--bg input-field `} type={type} name={name} />
-
-													<ErrorMessage
-														name={name}
-														component='p'
-														className='error-message text--left font-size--xs font--medium mb--5'
-													/>
-
-													{}
-												</div>
-											);
-										})}
-										<ReactSelect
-											style={{ ...reactSelectStyles }}
-											options={USER_OPTIONS}
-											isMulti={false}
-											isSearchable={false}
-											onChange={(selectedOption: any) =>
-												setFieldValue('name', selectedOption.label)
-											}
-											placeholder={'Select USer'}
-											closeMenuOnSelect={true}
-										/>
-										<div className='mt--20'>
-											<button>Add</button>
-										</div>
-									</Form>
-								);
-							}}
-						</Formik>
-					</div>
+					<ExpenseForm setIsOpenExpense={setIsOpenExpense} />
 				</CustomModal>
 			)}
 		</div>

@@ -1,6 +1,7 @@
 import { ThunkDispatch } from 'redux-thunk';
 import _ from 'lodash';
 import { IAction, IState } from 'shared/interface/state';
+import moment from 'moment';
 
 /**
  * create action creator
@@ -49,6 +50,17 @@ export const debounce = (func: any, wait = 400) => {
 		h = setTimeout(() => func(...args), wait);
 	};
 };
+
+export const formatDate = (date: any, format?: string) => {
+	if (!date) {
+		return '';
+	}
+
+	return moment(date)
+		.local()
+		.format(format || 'YYYY-MM-DD HH:mm:ss');
+};
+
 export const generateColor = () => {
 	const x = Math.floor(Math.random() * 256);
 	const y = Math.floor(Math.random() * 256);

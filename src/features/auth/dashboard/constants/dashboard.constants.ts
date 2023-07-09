@@ -1,7 +1,7 @@
 const USER_DETAILS = [
 	{
 		id: 101,
-		username: 'Janvi',
+		username: 'You',
 		profileImg: ''
 	},
 	{
@@ -22,12 +22,14 @@ const USER_DETAILS = [
 ];
 
 const EXPENSE_DETAILS_INITIAL_VALUES = {
-	description: '',
-	amount: ''
+	amount: '',
+	date: ''
 };
 
+const PAYEES_NAME = ['You', 'Rita', 'Kinjal', 'Jasmeen'];
+
 const USER_OPTIONS = [
-	{ label: 'Janvi', value: 1 },
+	{ label: 'You', value: 1 },
 	{ label: 'Rita', value: 2 },
 	{ label: 'Kinjal', value: 3 },
 	{ label: 'Jasmeen', value: 4 }
@@ -46,4 +48,4 @@ const EXPENSE_DETAILS = [
 	}
 ];
 
-export { USER_DETAILS, EXPENSE_DETAILS_INITIAL_VALUES, EXPENSE_DETAILS, USER_OPTIONS };
+export { USER_DETAILS, EXPENSE_DETAILS_INITIAL_VALUES, EXPENSE_DETAILS, USER_OPTIONS, PAYEES_NAME };
