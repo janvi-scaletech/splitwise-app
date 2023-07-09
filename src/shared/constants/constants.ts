@@ -21,13 +21,13 @@ const HEADER_MENU = [
 	{
 		title: 'Home',
 		SvgIcon: HomeIcon,
-		Url: '',
+		Url: '/',
 		className: ''
 	},
 	{
 		title: 'Group',
 		SvgIcon: GroupIcon,
-		Url: '',
+		Url: '/group',
 		className: ''
 	},
 	{
@@ -39,13 +39,13 @@ const HEADER_MENU = [
 	{
 		title: 'Friend',
 		SvgIcon: FriendIcon,
-		Url: '',
+		Url: '/friend-list',
 		className: ''
 	},
 	{
 		title: 'Account',
 		SvgIcon: FriendIcon,
-		Url: '',
+		Url: '/',
 		className: ''
 	}
 ];

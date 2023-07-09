@@ -1,38 +1,28 @@
 import { FC, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ErrorMessage, Field, Form, Formik, FormikValues } from 'formik';
 import { ReactSelect } from 'shared/form/reactSelect';
 import { reactSelectStyles } from 'shared/form/reactSelectStyles';
 import { expenseValidationSchema } from 'shared/constants/validation-schema';
+import { LeftArrow } from 'shared/components/icons/icons';
 import { notify } from 'shared/components/notification/notification';
 import {
 	EXPENSE_DETAILS,
 	EXPENSE_DETAILS_INITIAL_VALUES,
 	PAYEES_NAME,
-	USER_DETAILS,
 	USER_OPTIONS
 } from '../constants/dashboard.constants';
-import { useDispatch } from 'react-redux';
-import { createAction } from 'shared/util/utility';
-import * as actionTypes from 'store/actionTypes';
-import { LeftArrow } from 'shared/components/icons/icons';
-import { Link, useNavigate, useNavigation } from 'react-router-dom';
 
-// interface IExpenseProps {
-// 	setIsOpenExpense: (value: boolean) => void;
-// }
 const ExpenseForm: FC = () => {
 	const navigate = useNavigate();
 	const [selectedValues, setSelectedValues] = useState<string[]>([]);
-	const [expenseData, setExpenseData] = useState<any>();
 
 	const handleFormSubmit = (values: FormikValues) => {
-		setExpenseData(values);
-
 		const currentDate = new Date();
 		values.date = currentDate.toISOString();
+
 		const expensesValue = localStorage.getItem('expenses');
 		const expensesData = expensesValue ? JSON.parse(expensesValue) : [];
-
 		expensesData.push(values);
 
 		localStorage.setItem('expenses', JSON.stringify(expensesData));
@@ -69,7 +59,7 @@ const ExpenseForm: FC = () => {
 				validateOnBlur
 				validateOnMount
 			>
-				{({ handleSubmit, errors, touched, setFieldValue }) => {
+				{({ handleSubmit, setFieldValue }) => {
 					return (
 						<Form onSubmit={handleSubmit}>
 							{EXPENSE_DETAILS.map(({ label, name, type }, index) => {
@@ -140,9 +130,6 @@ const ExpenseForm: FC = () => {
 								<div className='add-button-wrapper display-flex-center border-radius--sm'>
 									<button className='add-btn no--bg font-size--sm'>Add</button>
 								</div>
-								{/* <div className='cancel-btn-wrapper display-flex-center border-radius--sm'>
-									<button className='cancel-btn no--bg font-size--sm'>Cancel</button>
-								</div> */}
 							</div>
 						</Form>
 					);

@@ -1,8 +1,7 @@
 import { FC } from 'react';
-import profileImg from 'assets/images/profile.webp';
-import Header from 'hoc/header/header';
-import GroupImg from 'assets/images/Friends.webp';
 import { Link } from 'react-router-dom';
+import profileImg from 'assets/images/profile.webp';
+import GroupImg from 'assets/images/Friends.webp';
 
 const GroupList: FC = () => {
 	return (
@@ -11,7 +10,7 @@ const GroupList: FC = () => {
 				<div className='circle-wrapper border-radius--half'>
 					<img src={profileImg} alt='profile-img' className='width--full height--full border-radius--half' />
 				</div>
-				<div className=''>
+				<div>
 					<p className='font-size--sm '>Welcome ,</p>
 					<h3 className='font--semi-bold font-size--xxl text--purple '>Rachel Green</h3>
 				</div>

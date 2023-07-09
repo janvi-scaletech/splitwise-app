@@ -37,6 +37,7 @@ const EXPENSE_DETAILS_INITIAL_VALUES = {
 };
 
 const PAYEES_NAME = ['You', 'Joey', 'Monica', 'Ross', 'Phoebe', 'Chandler'];
+const FRIEND_LIST = ['Joey', 'Monica', 'Ross', 'Phoebe', 'Chandler'];
 
 const USER_OPTIONS = [
 	{ label: 'You', value: 1 },
@@ -60,4 +61,4 @@ const EXPENSE_DETAILS = [
 	}
 ];
 
-export { USER_DETAILS, EXPENSE_DETAILS_INITIAL_VALUES, EXPENSE_DETAILS, USER_OPTIONS, PAYEES_NAME };
+export { USER_DETAILS, EXPENSE_DETAILS_INITIAL_VALUES, EXPENSE_DETAILS, USER_OPTIONS, PAYEES_NAME, FRIEND_LIST };
