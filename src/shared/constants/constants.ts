@@ -1,3 +1,5 @@
+import { AddIcon, FriendIcon, GroupIcon, HomeIcon } from 'shared/components/icons/icons';
+
 const FIRST_LEVEL_BREADCRUMBS = [{ name: 'home', link: '/' }];
 
 const NUMBER_REGEX = /[0-9]*\.?[0-9]*$/;
@@ -15,11 +17,45 @@ enum HASHTAG {
 	'meta_description' = 'Meta Description'
 }
 
+const HEADER_MENU = [
+	{
+		title: 'Home',
+		SvgIcon: HomeIcon,
+		Url: '',
+		className: ''
+	},
+	{
+		title: 'Group',
+		SvgIcon: GroupIcon,
+		Url: '',
+		className: ''
+	},
+	{
+		title: 'Create Expense',
+		SvgIcon: AddIcon,
+		Url: '/expense',
+		className: 'expense'
+	},
+	{
+		title: 'Friend',
+		SvgIcon: FriendIcon,
+		Url: '',
+		className: ''
+	},
+	{
+		title: 'Account',
+		SvgIcon: FriendIcon,
+		Url: '',
+		className: ''
+	}
+];
+
 export {
 	FIRST_LEVEL_BREADCRUMBS,
 	NUMBER_REGEX,
 	PASSWORD_VALIDATOR_REGEX,
 	EMAIL_VALIDATOR_REGEX,
 	DATE_AND_TIME_REGEX,
+	HEADER_MENU,
 	HASHTAG
 };

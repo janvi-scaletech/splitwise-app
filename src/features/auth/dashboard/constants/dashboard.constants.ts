@@ -6,17 +6,27 @@ const USER_DETAILS = [
 	},
 	{
 		id: 102,
-		username: 'Rita',
+		username: 'Joey',
 		profileImg: ''
 	},
 	{
 		id: 103,
-		username: 'Kinjal',
+		username: 'Ross',
 		profileImg: ''
 	},
 	{
-		id: 10,
-		username: 'Jasmeen',
+		id: 104,
+		username: 'Monica',
+		profileImg: ''
+	},
+	{
+		id: 105,
+		username: 'Phoebe',
+		profileImg: ''
+	},
+	{
+		id: 106,
+		username: 'Chandler',
 		profileImg: ''
 	}
 ];
@@ -26,23 +36,25 @@ const EXPENSE_DETAILS_INITIAL_VALUES = {
 	date: ''
 };
 
-const PAYEES_NAME = ['You', 'Rita', 'Kinjal', 'Jasmeen'];
+const PAYEES_NAME = ['You', 'Joey', 'Monica', 'Ross', 'Phoebe', 'Chandler'];
 
 const USER_OPTIONS = [
 	{ label: 'You', value: 1 },
-	{ label: 'Rita', value: 2 },
-	{ label: 'Kinjal', value: 3 },
-	{ label: 'Jasmeen', value: 4 }
+	{ label: 'Joey', value: 2 },
+	{ label: 'Monica', value: 3 },
+	{ label: 'Ross', value: 4 },
+	{ label: 'Phoebe', value: 5 },
+	{ label: 'Chandler', value: 6 }
 ];
 
 const EXPENSE_DETAILS = [
 	{
-		label: 'Enter Description',
+		label: 'Enter a description',
 		name: 'description',
 		type: 'text'
 	},
 	{
-		label: 'Enter Amount',
+		label: 'Enter a Amount',
 		name: 'amount',
 		type: 'number'
 	}

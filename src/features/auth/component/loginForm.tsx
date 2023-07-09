@@ -8,7 +8,6 @@ import AuthService from 'shared/services/auth.service';
 import HttpService from 'shared/services/http.service';
 import { API_CONFIG } from 'shared/constants/api';
 import { createAction } from 'shared/util/utility';
-import { HidePasswordIcon, ShowPasswordIcon } from 'shared/components/icons/icons';
 import { loginFormValidationSchema } from 'shared/constants/validation-schema';
 import * as actionTypes from 'store/actionTypes';
 
@@ -76,13 +75,7 @@ const LoginForm: React.FC = () => {
 					<div
 						className='password-icon position--absolute  flex cursor--pointer align-items--center'
 						onClick={() => setShowPassword(!showPassword)}
-					>
-						{showPassword ? (
-							<ShowPasswordIcon className='fill--comet' />
-						) : (
-							<HidePasswordIcon className='fill--white' />
-						)}
-					</div>
+					/>
 					<ErrorMessage
 						name='password'
 						component='p'

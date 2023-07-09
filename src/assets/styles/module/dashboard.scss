@@ -1,0 +1,226 @@
+.modal {
+	background-color: rgba(24, 25, 26, 0.7) !important;
+}
+.modal-dialog {
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	max-width: 680px;
+	display: flex;
+
+	.modal-content {
+		margin: auto;
+		height: fit-content;
+		max-height: 735px;
+		padding: 30px;
+		border-radius: 5px;
+		background: white;
+
+		//box-shadow: 0px 4px 14px rgba(98, 53, 226, 0.2);
+
+		div::-webkit-scrollbar {
+			-ms-overflow-style: none;
+			/* IE and Edge */
+			scrollbar-width: none;
+			display: none;
+			opacity: 0;
+		}
+	}
+	.modal-close-btn {
+		display: none;
+	}
+}
+.dashboard-wrapper {
+	padding: 20px;
+	.group-list-wrapper {
+		// padding: 30px 20px 0px;
+		.circle-wrapper {
+			width: 52px;
+			height: 52px;
+		}
+		.list-wrapper {
+			.img-wrapper {
+				height: 60px;
+				width: 60px;
+				background-color: #7b72ff;
+			}
+		}
+		.button-wrapper {
+			border: 2px solid #7b72ff;
+			padding: 5px 8px;
+			width: 140px;
+			margin: 0 auto;
+
+			.btn {
+				color: #7b72ff;
+			}
+		}
+		.expense-btn-wrapper {
+			background-color: #7b72ff;
+			width: 130px;
+			padding: 5px 8px;
+			.expense-btn {
+				color: $white;
+			}
+		}
+	}
+}
+
+.sm-container {
+	width: 100%;
+	max-width: 290px;
+	margin: 0 auto;
+	height: 100vh;
+	background-color: $white;
+	border-radius: 20px;
+}
+.header-wrapper {
+	position: absolute;
+	bottom: 0;
+
+	.header-menu-wrapper {
+		// gap: 30px;
+		// padding: 25px;
+		gap: 10px;
+		// padding: 10px;
+		svg {
+			fill: getColor($grey, 50);
+
+			path {
+				fill: getColor($grey, 50);
+			}
+		}
+		.expense {
+			width: 40px;
+			height: 40px;
+			path {
+				fill: $white;
+			}
+		}
+	}
+}
+.expenses-wrapper {
+	padding: 20px;
+	.name-wrapper {
+		width: 150px;
+		top: 140px;
+		left: 65px;
+		background-color: $white;
+		border-radius: 4px;
+	}
+	.owe-list-wrapper {
+		padding: 10px;
+		background-color: #7b72ff;
+		.left-arrow {
+			fill: $white;
+		}
+	}
+	.group-img-wrapper {
+		width: 70px;
+		height: 70px;
+	}
+	.group {
+		background-color: #7b72ff;
+	}
+	.expense-btn-wrapper {
+		width: 150px;
+		height: 35px;
+		background-color: #7b72ff;
+		bottom: 50px;
+		right: 20px;
+	}
+	.expenses-list {
+		.expense-details {
+			border: 2px solid #7b72ff;
+			border-radius: 20px;
+			padding: 10px;
+		}
+	}
+}
+.expense-form-wrapper {
+	padding: 20px;
+	.input-field {
+		border: 2px solid #7b72ff;
+		border-radius: 10px;
+		height: 42px;
+		padding-left: 10px;
+	}
+	.error-message {
+		color: getColor($red, 100);
+		font-size: 11px;
+	}
+	.css-1thrcbp-Control {
+		border: 2px solid #7b72ff;
+		width: 95%;
+	}
+
+	.check-wrapper {
+		display: block;
+		position: relative;
+		font-size: 22px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		font-weight: 500;
+		height: 30px;
+		width: 30px;
+	}
+
+	.checkmarks {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 18px;
+		background-color: #7b72ff;
+		border-radius: 4px;
+		height: 20px;
+		width: 20px;
+
+		&::after {
+			content: '';
+			position: absolute;
+			display: none;
+			left: 7px;
+			top: 3px;
+			width: 3px;
+			height: 10px;
+			border: solid $white;
+			border-width: 0 4px 4px 0;
+			transform: rotate(45deg);
+		}
+	}
+
+	.check-wrapper:hover input ~ .checkmarks {
+		background-color: #7b72ff;
+	}
+
+	.check-wrapper input:checked ~ .checkmarks {
+		background-color: #7b72ff;
+	}
+
+	.check-wrapper input:checked ~ .checkmarks:after {
+		display: block;
+	}
+	.btn-wrapper {
+		gap: 20px;
+		margin-top: 50px;
+		.add-button-wrapper {
+			width: 150px;
+			height: 35px;
+			background-color: #7b72ff;
+			.add-btn {
+				color: $white;
+			}
+		}
+		// .cancel-btn-wrapper {
+		// 	width: 100px;
+		// 	height: 35px;
+		// 	background-color: $white;
+		// 	border: 2px solid #7b72ff;
+		// 	.cancel-btn {
+		// 		color: #7b72ff	;
+		// 	}
+		// }
+	}
+}

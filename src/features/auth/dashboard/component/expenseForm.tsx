@@ -12,13 +12,16 @@ import {
 	USER_OPTIONS
 } from '../constants/dashboard.constants';
 import { useDispatch } from 'react-redux';
+import { createAction } from 'shared/util/utility';
+import * as actionTypes from 'store/actionTypes';
+import { LeftArrow } from 'shared/components/icons/icons';
+import { Link, useNavigate, useNavigation } from 'react-router-dom';
 
-interface IExpenseProps {
-	setIsOpenExpense: (value: boolean) => void;
-}
-const ExpenseForm: FC<IExpenseProps> = ({ setIsOpenExpense }) => {
-	const dispatch = useDispatch();
-
+// interface IExpenseProps {
+// 	setIsOpenExpense: (value: boolean) => void;
+// }
+const ExpenseForm: FC = () => {
+	const navigate = useNavigate();
 	const [selectedValues, setSelectedValues] = useState<string[]>([]);
 	const [expenseData, setExpenseData] = useState<any>();
 
@@ -35,7 +38,7 @@ const ExpenseForm: FC<IExpenseProps> = ({ setIsOpenExpense }) => {
 		localStorage.setItem('expenses', JSON.stringify(expensesData));
 
 		notify('Expense added successfully', 'success');
-		setIsOpenExpense(false);
+		navigate('/group-details');
 	};
 
 	const handleCheckValue = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,7 +54,13 @@ const ExpenseForm: FC<IExpenseProps> = ({ setIsOpenExpense }) => {
 		return updatedValues;
 	};
 	return (
-		<div>
+		<div className='expense-form-wrapper sm-container position--relative'>
+			<div className='flex align-items--center '>
+				<Link to='/group-details'>
+					<LeftArrow className='mr--20' />
+				</Link>
+				<h3 className='font-size--lg '>Add Expense</h3>
+			</div>
 			<Formik
 				initialValues={EXPENSE_DETAILS_INITIAL_VALUES}
 				onSubmit={handleFormSubmit}
@@ -65,32 +74,38 @@ const ExpenseForm: FC<IExpenseProps> = ({ setIsOpenExpense }) => {
 						<Form onSubmit={handleSubmit}>
 							{EXPENSE_DETAILS.map(({ label, name, type }, index) => {
 								return (
-									<div key={index} className='mb--15 flex flex--column position--relative'>
-										<label className='text--left font-size--browser-default font--semi-bold'>
+									<div key={index} className='mb--15 mt--20 flex flex--column position--relative'>
+										<label className='text--left font-size--sm font--medium text--purple'>
 											{label}
 										</label>
-										<Field className={` no--bg input-field `} type={type} name={name} />
+										<Field
+											className={`no--bg input-field font-size--sm `}
+											type={type}
+											name={name}
+										/>
 
 										<ErrorMessage
 											name={name}
 											component='p'
-											className='error-message text--left font-size--xs font--medium mb--5'
+											className='error-message text--left  font--medium mb--5'
 										/>
 									</div>
 								);
 							})}
+
+							<p className='font-size--sm font--medium text--purple'>Who paid</p>
 							<ReactSelect
 								style={{ ...reactSelectStyles }}
 								options={USER_OPTIONS}
 								isMulti={false}
 								isSearchable={false}
 								onChange={(selectedOption: any) => setFieldValue('paid_person', selectedOption.label)}
-								placeholder={'Select USer'}
+								placeholder={'Select person who paid'}
 								closeMenuOnSelect={true}
 							/>
 
 							<div className='mt--40'>
-								<p className='text--grey-200 font-size--xxl font--regular line-height--20'>
+								<p className='font-size--sm font--medium text--purple'>
 									How many people part of expense?
 								</p>
 								<div className='flex flex--wrap justify-content--between'>
@@ -99,7 +114,7 @@ const ExpenseForm: FC<IExpenseProps> = ({ setIsOpenExpense }) => {
 											<div className='mt--15 width--30' key={index}>
 												<label
 													htmlFor={`people${index}`}
-													className='check-wrapper flex width--full font-size--browser-default font--regular line-height--20'
+													className='check-wrapper flex width--full font-size--sm  font--regular line-height--20'
 												>
 													<input
 														type='checkbox'
@@ -110,13 +125,10 @@ const ExpenseForm: FC<IExpenseProps> = ({ setIsOpenExpense }) => {
 															const updatedData = handleCheckValue(event);
 															setFieldValue('owes_list', updatedData);
 														}}
-														// checked={
-														// 	( && payees.includes(username)) || false
-														// }
 													/>
 
 													<span className='checkmarks' />
-													<p className='ml--25'>{values}</p>
+													<p className='ml--25 font-size--sm'>{values}</p>
 												</label>
 											</div>
 										);
@@ -124,8 +136,13 @@ const ExpenseForm: FC<IExpenseProps> = ({ setIsOpenExpense }) => {
 								</div>
 							</div>
 
-							<div className='mt--20'>
-								<button>Add</button>
+							<div className='btn-wrapper flex justify-content--center'>
+								<div className='add-button-wrapper display-flex-center border-radius--sm'>
+									<button className='add-btn no--bg font-size--sm'>Add</button>
+								</div>
+								{/* <div className='cancel-btn-wrapper display-flex-center border-radius--sm'>
+									<button className='cancel-btn no--bg font-size--sm'>Cancel</button>
+								</div> */}
 							</div>
 						</Form>
 					);

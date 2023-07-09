@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom';
 import { Formik, FormikValues, Field, ErrorMessage, Form } from 'formik';
 import * as Yup from 'yup';
 
-import { HidePasswordIcon, ShowPasswordIcon } from 'shared/components/icons/icons';
 import HttpService from 'shared/services/http.service';
 import { API_CONFIG } from 'shared/constants/api';
 import { notify } from 'shared/components/notification/notification';
@@ -60,13 +59,7 @@ const ResetPassword: React.FC = () => {
 							<div
 								className='password-icon position--absolute  flex cursor--pointer align-items--center'
 								onClick={() => setShowPassword(!showPassword)}
-							>
-								{showPassword ? (
-									<ShowPasswordIcon className='fill--comet cursor--pointer' />
-								) : (
-									<HidePasswordIcon className='fill--white cursor--pointer' />
-								)}
-							</div>
+							/>
 							<ErrorMessage
 								name='password'
 								component='span'
@@ -85,13 +78,7 @@ const ResetPassword: React.FC = () => {
 							<div
 								className='password-icon position--absolute  flex cursor--pointer align-items--center'
 								onClick={() => setConfirmPassword(!showConfirmPassword)}
-							>
-								{showConfirmPassword ? (
-									<ShowPasswordIcon className='fill--comet cursor--pointer' />
-								) : (
-									<HidePasswordIcon className='fill--white cursor--pointer' />
-								)}
-							</div>
+							/>
 							<ErrorMessage
 								name='confirmPassword'
 								component='span'

@@ -1186,6 +1186,13 @@
 	}
 }
 
+.text--purple {
+	color: #7b72ff;
+}
+.text--light-grey {
+	color: getColor($grey, 50);
+}
+
 .text--grey {
 	@include getShadesColorClasses($grey, 'color');
 }
@@ -1204,6 +1211,9 @@
 
 .text--black {
 	color: $black;
+}
+.text--green {
+	color: getColor($success, 700);
 }
 
 /* Background

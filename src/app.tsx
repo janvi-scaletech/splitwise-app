@@ -5,6 +5,8 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { IState } from 'shared/interface/state';
 import Layout from 'hoc/layout/layout';
 import Dashboard from 'features/auth/dashboard/container/dashboard';
+import ExpenseForm from 'features/auth/dashboard/component/expenseForm';
+import ExpenseList from 'features/auth/dashboard/component/expenseList';
 
 const App: React.FC = () => {
 	const isLogin: boolean = useSelector((state: IState) => state.auth.isLogin);
@@ -13,6 +15,9 @@ const App: React.FC = () => {
 		<Layout>
 			<Routes>
 				<Route path='/' element={<Dashboard />} />
+				<Route path='expense' element={<ExpenseForm />} />
+				<Route path='group-details' element={<ExpenseList />} />
+
 				{/*<Route path='/activity' element={<ActivityContainer />} />*/}
 				{/*<Route path='/activity/:activityId' element={<Activity />} />*/}
 				<Route path='*' element={<Navigate replace to='/' />} />
