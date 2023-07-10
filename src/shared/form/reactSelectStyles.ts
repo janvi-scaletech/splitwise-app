@@ -25,7 +25,7 @@ export const reactSelectStyles = {
 		zIndex: 3,
 		marginTop: 0,
 		width: '289px',
-		top: '50%'
+		top: '43%'
 	}),
 	menuList: (base: CSSProperties) => ({
 		...base,
