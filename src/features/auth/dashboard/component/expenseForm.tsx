@@ -47,9 +47,9 @@ const ExpenseForm: FC = () => {
 		<div className='expense-form-wrapper sm-container position--relative'>
 			<div className='flex align-items--center '>
 				<Link to='/group-details'>
-					<LeftArrow className='mr--20' />
+					<LeftArrow className='mr--20 mt--5 left-arrow-icon' />
 				</Link>
-				<h3 className='font-size--lg '>Add Expense</h3>
+				<h3 className='font-size--lg font--semi-bold '>Add Expense</h3>
 			</div>
 			<Formik
 				initialValues={EXPENSE_DETAILS_INITIAL_VALUES}
@@ -94,7 +94,7 @@ const ExpenseForm: FC = () => {
 								closeMenuOnSelect={true}
 							/>
 
-							<div className='mt--40'>
+							<div className='mt--25'>
 								<p className='font-size--sm font--medium text--purple'>
 									How many people part of expense?
 								</p>
@@ -118,7 +118,7 @@ const ExpenseForm: FC = () => {
 													/>
 
 													<span className='checkmarks' />
-													<p className='ml--25 font-size--sm'>{values}</p>
+													<p className='ml--25 font-size--sm text--grey'>{values}</p>
 												</label>
 											</div>
 										);
@@ -126,11 +126,9 @@ const ExpenseForm: FC = () => {
 								</div>
 							</div>
 
-							<div className='btn-wrapper flex justify-content--center'>
-								<div className='add-button-wrapper display-flex-center border-radius--sm cursor--pointer'>
-									<button className='add-btn no--bg font-size--sm'>Add</button>
-								</div>
-							</div>
+							<button className='add-btn font-size--sm border-radius--sm cursor--pointer display-flex-center m--0-auto'>
+								Add
+							</button>
 						</Form>
 					);
 				}}

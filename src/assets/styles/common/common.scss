@@ -1194,7 +1194,7 @@
 }
 
 .text--grey {
-	@include getShadesColorClasses($grey, 'color');
+	color: getColor($grey, 700);
 }
 
 .text--red {
