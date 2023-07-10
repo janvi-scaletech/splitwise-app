@@ -42,8 +42,8 @@ export const GroupIcon: FC<IIconProps> = ({ height, width, className }: IIconPro
 export const FriendIcon: FC<IIconProps> = ({ height, width, className }: IIconProps) => (
 	<svg className={className || ''} width={width || '20'} height={height || '20'} viewBox='0 0 24 24' fill='none'>
 		<path
-			fill-rule='evenodd'
-			clip-rule='evenodd'
+			fillRule='evenodd'
+			clipRule='evenodd'
 			d='M12 14.35c-3.25 0-5-3.175-5-6.725C7 4.15 9 2 12 2s5 2.15 5 5.625c0 3.55-1.75 6.725-5 6.725zm0-2c1.74 0 3-1.849 3-4.725C15 5.246 13.878 4 12 4S9 5.246 9 7.625c0 2.876 1.26 4.725 3 4.725zm-7.06 9.648a1 1 0 0 0 1.058-.938C6.114 19.138 8.041 18 12.004 18c3.96 0 5.883 1.136 6 3.06A1 1 0 0 0 20 20.94c-.195-3.218-3.11-4.94-7.996-4.94-4.89 0-7.81 1.724-8.002 4.94a1 1 0 0 0 .938 1.058z'
 			fill='#000000'
 		/>
@@ -91,9 +91,9 @@ export const GroupAddIcon: FC<IIconProps> = ({ height, width, className }: IIcon
 export const AddIcon: FC<IIconProps> = ({ height, width, className }: IIconProps) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
-		shape-rendering='geometricPrecision'
-		text-rendering='geometricPrecision'
-		image-rendering='optimizeQuality'
+		shapeRendering='geometricPrecision'
+		textRendering='geometricPrecision'
+		imageRendering='optimizeQuality'
 		fillRule='evenodd'
 		clipRule='evenodd'
 		className={className || ''}
@@ -104,7 +104,7 @@ export const AddIcon: FC<IIconProps> = ({ height, width, className }: IIconProps
 	>
 		<path
 			fill='#00AB42'
-			fill-rule='nonzero'
+			fillRule='nonzero'
 			d='M256 0c70.68 0 134.68 28.67 181.01 74.99 46.32 46.32 74.99 110.32 74.99 181S483.33 390.68 437.01 437c-46.33 46.33-110.33 74.99-181.01 74.99-70.68 0-134.68-28.66-181.01-74.99C28.67 390.68 0 326.67 0 255.99c0-70.68 28.67-134.68 74.99-181C121.32 28.67 185.32 0 256 0z'
 			style={{ fill: '#7b72ff' }}
 		/>
