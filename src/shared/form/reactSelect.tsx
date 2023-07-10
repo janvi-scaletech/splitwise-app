@@ -7,11 +7,12 @@ const initStyles = {
 	control: () => ({
 		// none of react-selects styles are passed to <View />
 		display: 'flex',
-		width: '100%',
+		width: '95%',
 		minHeight: '38px  ',
-		border: '1px solid #e5e6e7',
+		border: '2px solid #7b72ff',
 		padding: '0px',
-		color: 'black'
+		color: 'black',
+		borderRadius: '10px'
 	})
 };
 
