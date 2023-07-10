@@ -127,7 +127,7 @@ const ExpenseForm: FC = () => {
 							</div>
 
 							<div className='btn-wrapper flex justify-content--center'>
-								<div className='add-button-wrapper display-flex-center border-radius--sm'>
+								<div className='add-button-wrapper display-flex-center border-radius--sm cursor--pointer'>
 									<button className='add-btn no--bg font-size--sm'>Add</button>
 								</div>
 							</div>

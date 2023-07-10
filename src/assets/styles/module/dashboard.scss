@@ -2,7 +2,7 @@
 	width: 100%;
 	max-width: 290px;
 	margin: 50px auto 0 auto;
-	height: 100vh;
+	min-height: 640px;
 	background-color: $white;
 	border-radius: 20px;
 	padding: 20px;
@@ -96,6 +96,7 @@
 		padding: 10px;
 	}
 }
+
 .friend-list-wrapper {
 	.friend-list {
 		background-color: #eaeced;
@@ -185,4 +186,14 @@
 			}
 		}
 	}
+}
+
+.yes-btn {
+	background-color: $primary;
+	padding: 5px 5px;
+	width: 100px;
+	color: $white;
+}
+.correct-icon {
+	fill: $primary;
 }

@@ -20,6 +20,13 @@ body {
 	overflow-x: hidden;
 }
 
+#wrapper {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 ::-webkit-scrollbar {
 	width: 5px;
 	border-radius: $border-radius-default;
