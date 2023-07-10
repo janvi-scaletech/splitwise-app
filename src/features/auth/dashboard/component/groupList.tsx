@@ -26,8 +26,8 @@ const GroupList: FC = () => {
 				</div>
 			</Link>
 
-			<div className='button-wrapper display-flex-center border-radius--sm '>
-				<button className='btn no--bg font-size--sm'>Start a new group</button>
+			<div className='button-wrapper display-flex-center border-radius--sm cursor-not--allowed  '>
+				<button className='btn no--bg font-size--sm cursor-not--allowed'>Start a new group</button>
 			</div>
 		</div>
 	);
