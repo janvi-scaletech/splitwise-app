@@ -46,7 +46,7 @@ const ExpenseForm: FC = () => {
 	return (
 		<div className='expense-form-wrapper sm-container position--relative'>
 			<div className='flex align-items--center '>
-				<Link to='/group-details'>
+				<Link to='/expense-details'>
 					<LeftArrow className='mr--20 mt--5 left-arrow-icon' />
 				</Link>
 				<h3 className='font-size--lg font--semi-bold '>Add Expense</h3>
