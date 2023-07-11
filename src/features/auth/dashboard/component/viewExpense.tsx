@@ -19,7 +19,7 @@ const ViewExpense: FC<IViewProps> = ({ isViewExpense }) => {
 			<div className='flex justify-content--between align-items--center'>
 				<div className='mb--10'>
 					<p className='text--capitalize font-size--sm'>{description}</p>
-					<p className='font-size--sm font--semi-bold text--primary'>₹{amount}</p>
+					<p className='font-size--sm font--semi-bold text--primary'>${amount}</p>
 					<p className='font-size--xxs text--grey'>
 						Added by {paid_person} on {formatDate(date)}
 					</p>
