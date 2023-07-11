@@ -104,7 +104,7 @@ const ExpenseForm: FC = () => {
 											<div className='mt--15 width--30' key={index}>
 												<label
 													htmlFor={`people${index}`}
-													className='check-wrapper flex width--full font-size--sm  font--regular line-height--20'
+													className='check-wrapper flex width--full font-size--sm  font--regular line-height--20 cursor--pointer'
 												>
 													<input
 														type='checkbox'

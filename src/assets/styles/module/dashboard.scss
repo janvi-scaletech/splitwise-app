@@ -61,6 +61,12 @@
 				fill: $white;
 			}
 		}
+		.purple-icon {
+			fill: $primary;
+			path {
+				fill: $primary;
+			}
+		}
 	}
 }
 .expenses-wrapper {
@@ -79,14 +85,13 @@
 		bottom: 50px;
 		right: 20px;
 	}
-	.settle-btn-wrapper {
+
+	.settle-up {
+		color: $white;
+		font-size: $font-size-sm;
 		width: 80px;
 		height: 35px;
 		background-color: $primary;
-		.settle-up {
-			color: $white;
-			font-size: $font-size-sm;
-		}
 	}
 }
 .expenses-list {

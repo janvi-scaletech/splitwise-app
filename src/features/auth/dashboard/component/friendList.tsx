@@ -15,9 +15,9 @@ const FriendList: FC = () => {
 				<p className='font-size--sm font--medium'>FRIENDS</p>
 			</div>
 			<p className='text--light-grey font-size--xxs mt--10'>Friends</p>
-			{FRIEND_LIST.map((name) => {
+			{FRIEND_LIST.map((name, index) => {
 				return (
-					<div className='friend-list border-radius--sm flex align-items--center mt--10'>
+					<div className='friend-list border-radius--sm flex align-items--center mt--10' key={index}>
 						<div className='img-wrapper border-radius--half mr--10'>
 							<img src={GroupImg} className='width--full height--full border-radius--half' />
 						</div>

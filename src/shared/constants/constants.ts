@@ -21,7 +21,7 @@ const HEADER_MENU = [
 	{
 		title: 'Home',
 		SvgIcon: HomeIcon,
-		Url: '/',
+		Url: '',
 		className: ''
 	},
 	{
@@ -45,7 +45,7 @@ const HEADER_MENU = [
 	{
 		title: 'Account',
 		SvgIcon: FriendIcon,
-		Url: '/',
+		Url: '',
 		className: ''
 	}
 ];

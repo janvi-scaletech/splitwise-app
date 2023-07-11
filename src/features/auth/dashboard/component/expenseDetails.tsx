@@ -59,9 +59,7 @@ const ExpenseDetails: FC = () => {
 					)}
 				</div>
 				<Link to='/settle-up'>
-					<div className='settle-btn-wrapper border-radius--sm flex justify-content--center  align-items--center mt--10'>
-						<button className='no--bg settle-up'>Settle up</button>
-					</div>
+					<button className='settle-up border-radius--sm mt--10'>Settle up</button>
 				</Link>
 			</div>
 			<ExpenseList />
