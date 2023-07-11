@@ -27,7 +27,7 @@ const ViewExpense: FC<IViewProps> = ({ isViewExpense }) => {
 			</div>
 			<div>
 				<p className='font-size--sm font--semi-bold mb--10'>
-					{paid_person} paid <span className='font-size--sm font--semi-bold text--primary'>₹{amount}</span>
+					{paid_person} paid <span className='font-size--sm font--semi-bold text--primary'>${amount}</span>
 				</p>
 
 				{owes_list &&
@@ -37,7 +37,7 @@ const ViewExpense: FC<IViewProps> = ({ isViewExpense }) => {
 								<div className='flex'>
 									<p className='font-size--sm mr--5'>{name} owes </p>
 									<p className='text--success font-size--sm font--medium text--primary'>
-										₹{splitAmount.toFixed(2)}
+										${splitAmount.toFixed(2)}
 									</p>
 								</div>
 							</div>
