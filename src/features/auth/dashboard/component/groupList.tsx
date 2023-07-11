@@ -15,7 +15,7 @@ const GroupList: FC = () => {
 					<h3 className='font--semi-bold font-size--xxl text--purple '>Rachel Green</h3>
 				</div>
 			</div>
-			<Link to='/group-details'>
+			<Link to='/expense-details'>
 				<div className='list-wrapper flex align-items--center mt--30 cursor--pointer mb--30'>
 					<div className='img-wrapper border-radius--sm'>
 						<img src={GroupImg} className='width--full height--full border-radius--sm' />

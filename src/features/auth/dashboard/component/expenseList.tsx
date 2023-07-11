@@ -1,10 +1,20 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { formatDate } from 'shared/util/utility';
 import { IValuesProps } from '../interface/dashboard';
+import ViewExpense from './viewExpense';
+import CustomModal from 'shared/modal/modal';
 
 const ExpenseList: FC = () => {
 	const expensesDataString = localStorage.getItem('expenses');
 	const expensesData = expensesDataString ? JSON.parse(expensesDataString) : [];
+
+	const [isViewExpense, setIsViewExpense] = useState<number | null>(null);
+	const [isViewPopup, setIsViewPopup] = useState(false);
+
+	const openPopup = (index: number) => {
+		setIsViewPopup(true);
+		setIsViewExpense(index);
+	};
 	return (
 		<div className='expenses-list mt--20'>
 			{expensesData &&
@@ -26,6 +36,7 @@ const ExpenseList: FC = () => {
 						<div
 							className='expense-details cursor--pointer mt--10 flex justify-content--between align-items--center'
 							key={index}
+							onClick={() => openPopup(index)}
 						>
 							<div className='width--60 flex align-items--center'>
 								<p className='font-size--xxs mr--20'>{formatDate(date, 'LL')}</p>
@@ -68,6 +79,12 @@ const ExpenseList: FC = () => {
 						</div>
 					);
 				})}
+
+			{isViewPopup && isViewExpense !== null && (
+				<CustomModal className='view-modal' show={true} handleClose={() => setIsViewPopup(false)}>
+					<ViewExpense isViewExpense={isViewExpense} handleClose={() => setIsViewPopup(false)} />
+				</CustomModal>
+			)}
 		</div>
 	);
 };

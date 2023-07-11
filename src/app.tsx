@@ -7,8 +7,9 @@ import Layout from 'hoc/layout/layout';
 import Dashboard from 'features/auth/dashboard/container/dashboard';
 import ExpenseForm from 'features/auth/dashboard/component/expenseForm';
 import FriendList from 'features/auth/dashboard/component/friendList';
-import GroupDetails from 'features/auth/dashboard/component/groupDetails';
 import SettleUp from 'features/auth/dashboard/component/settleUp';
+import ExpenseDetails from 'features/auth/dashboard/component/expenseDetails';
+import ViewExpense from 'features/auth/dashboard/component/viewExpense';
 
 const App: React.FC = () => {
 	const isLogin: boolean = useSelector((state: IState) => state.auth.isLogin);
@@ -18,12 +19,10 @@ const App: React.FC = () => {
 			<Routes>
 				<Route path='/group' element={<Dashboard />} />
 				<Route path='expense' element={<ExpenseForm />} />
-				<Route path='group-details' element={<GroupDetails />} />
+				<Route path='expense-details' element={<ExpenseDetails />} />
 				<Route path='friend-list' element={<FriendList />} />
 				<Route path='settle-up' element={<SettleUp />} />
 
-				{/*<Route path='/activity' element={<ActivityContainer />} />*/}
-				{/*<Route path='/activity/:activityId' element={<Activity />} />*/}
 				<Route path='*' element={<Navigate replace to='/group' />} />
 			</Routes>
 		</Layout>

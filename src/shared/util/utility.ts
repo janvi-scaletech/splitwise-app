@@ -58,7 +58,7 @@ export const formatDate = (date: any, format?: string) => {
 
 	return moment(date)
 		.local()
-		.format(format || 'YYYY-MM-DD HH:mm:ss');
+		.format(format || 'YYYY-MM-DD');
 };
 
 export const generateColor = () => {

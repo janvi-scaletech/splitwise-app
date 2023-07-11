@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AddIcon, LeftArrow } from 'shared/components/icons/icons';
 import { IExpenseProps } from '../interface/dashboard';
 import ExpenseList from './expenseList';
 
-const GroupDetails = () => {
+const ExpenseDetails: FC = () => {
 	const [totalOwe, setTotalOwe] = useState(0);
 	const [totalBorrow, setTotalBorrow] = useState(0);
 	const expenseData = JSON.parse(localStorage.getItem('expenses') || '[]');
@@ -76,4 +76,4 @@ const GroupDetails = () => {
 	);
 };
 
-export default GroupDetails;
+export default ExpenseDetails;

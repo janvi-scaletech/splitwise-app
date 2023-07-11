@@ -28,7 +28,7 @@ const ExpenseForm: FC = () => {
 		localStorage.setItem('expenses', JSON.stringify(expensesData));
 
 		notify('Expense added successfully', 'success');
-		navigate('/group-details');
+		navigate('/expense-details');
 	};
 
 	const handleCheckValue = (event: React.ChangeEvent<HTMLInputElement>) => {
