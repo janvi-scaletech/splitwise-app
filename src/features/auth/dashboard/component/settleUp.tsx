@@ -14,7 +14,7 @@ const SettleUp: FC = () => {
 	return (
 		<div className='settle-wrapper sm-container position--relative'>
 			<div className='flex '>
-				<Link to='/group-details'>
+				<Link to='/expense-details'>
 					<CloseIcon className='mr--10' />
 				</Link>
 				<p className=''>Select a balance to settle</p>
