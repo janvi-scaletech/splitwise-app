@@ -4,12 +4,11 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { IState } from 'shared/interface/state';
 import Layout from 'hoc/layout/layout';
-import Dashboard from 'features/auth/dashboard/container/dashboard';
-import ExpenseForm from 'features/auth/dashboard/component/expenseForm';
-import FriendList from 'features/auth/dashboard/component/friendList';
-import SettleUp from 'features/auth/dashboard/component/settleUp';
-import ExpenseDetails from 'features/auth/dashboard/component/expenseDetails';
-import ViewExpense from 'features/auth/dashboard/component/viewExpense';
+import Dashboard from 'features/dashboard/container/dashboard';
+import ExpenseForm from 'features/dashboard/component/expenseForm';
+import ExpenseDetails from 'features/dashboard/component/expenseDetails';
+import FriendList from 'features/dashboard/component/friendList';
+import SettleUp from 'features/dashboard/component/settleUp';
 
 const App: React.FC = () => {
 	const isLogin: boolean = useSelector((state: IState) => state.auth.isLogin);
